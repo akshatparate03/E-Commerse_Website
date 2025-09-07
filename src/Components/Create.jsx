@@ -42,59 +42,73 @@ const Create = () => {
     toast.success("Product Added Successfully!");
     navigate("/");
   };
+
   return (
     <form
       onSubmit={AddProductHandler}
-      className="flex flex-col items-center p-[5%] w-screen h-screen"
+      className="flex flex-col items-center p-5 sm:p-[5%] w-screen min-h-screen"
     >
-      <h1 className="mb-5 w-1/2 text-3xl">Add New Product</h1>
+      <h1 className="mb-5 w-full sm:w-1/2 text-2xl sm:text-3xl text-center sm:text-left">
+        Add New Product
+      </h1>
 
       <input
+        id="image"
+        name="image"
         type="url"
         placeholder="Product Image Link..."
-        className="text-1xl bg-zinc-100 rounded p-3 w-1/2 mb-3"
+        className="text-base sm:text-lg bg-zinc-100 rounded p-3 w-full sm:w-1/2 mb-3"
         onChange={(e) => setimage(e.target.value)}
         value={image}
       />
 
       <input
+        id="title"
+        name="title"
         type="text"
         placeholder="Product Title..."
-        className="text-1xl bg-zinc-100 rounded p-3 w-1/2 mb-3"
+        className="text-base sm:text-lg bg-zinc-100 rounded p-3 w-full sm:w-1/2 mb-3"
         onChange={(e) => settitle(e.target.value)}
         value={title}
       />
 
-      <div className="w-1/2 flex justify-between">
+      {/* Category + Price row */}
+      <div className="w-full sm:w-1/2 flex flex-col sm:flex-row sm:justify-between gap-3 mb-3">
         <input
+          id="category"
+          name="category"
           type="text"
           placeholder="Category Of Product..."
-          className="text-1xl bg-zinc-100 rounded p-3 w-[48%] mb-3"
+          className="text-base sm:text-lg bg-zinc-100 rounded p-3 w-full sm:w-[48%]"
           onChange={(e) => setcategory(e.target.value)}
           value={category}
         />
 
         <input
+          id="price"
+          name="price"
           type="number"
           placeholder="Product Price..."
-          className="text-1xl bg-zinc-100 rounded p-3 w-[48%] mb-3"
+          className="text-base sm:text-lg bg-zinc-100 rounded p-3 w-full sm:w-[48%]"
           onChange={(e) => setprice(e.target.value)}
           value={price}
         />
       </div>
 
       <textarea
+        id="description"
+        name="description"
         placeholder="Product Description..."
-        className="text-1xl bg-zinc-100 rounded p-3 w-1/2 mb-3"
+        className="text-base sm:text-lg bg-zinc-100 rounded p-3 w-full sm:w-1/2 mb-3"
         onChange={(e) => setdescription(e.target.value)}
         value={description}
         rows="10"
       ></textarea>
 
-      <div className="w-1/2">
+      <div className="w-full sm:w-1/2">
         <button
-          className="py-2 px-5 border rounded border-blue-500 text-blue-500"
-          href="/create"
+          type="submit"
+          className="w-full sm:w-auto py-2 px-5 border rounded border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white transition"
         >
           Add New Product
         </button>

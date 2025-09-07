@@ -25,29 +25,37 @@ const Details = () => {
   };
 
   return product ? (
-    <div className="w-[70%] flex h-full justify-between items-center m-auto p-[10%]">
+    <div className="w-full lg:w-[70%] flex flex-col lg:flex-row items-center lg:justify-between m-auto p-5 sm:p-10 lg:p-[10%] gap-6">
       <img
-        className="object-contain h-[80%] w-[40%]"
-        src={`${product.image}`}
-        alt="Bag"
+        className="object-contain w-full sm:w-[70%] lg:w-[40%] max-h-[300px] sm:max-h-[400px] lg:h-[80%]"
+        src={product.image}
+        alt={product.title}
       />
-      <div className="content w-[50%]">
-        <h1 className="text-4xl">{product.title}</h1>
-        <h3 className="text-zinc-400 my-5">{product.category}</h3>
-        <h2 className="text-red-800">$ {product.price}</h2>
-        <p className="mb-[5%]">{product.description}</p>
-        <Link
-          to={`/edit/${product.id}`}
-          className="mr-5 py-2 px-5 border rounded border-blue-500 text-blue-500"
-        >
-          Edit
-        </Link>
-        <button
-          onClick={() => ProductDeleteHandler(product.id)}
-          className="py-2 px-5 border rounded border-red-500 text-red-500"
-        >
-          Delete
-        </button>
+
+      <div className="content w-full lg:w-[50%] text-center lg:text-left">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
+          {product.title}
+        </h1>
+        <h3 className="text-zinc-400 my-3 sm:my-5">{product.category}</h3>
+        <h2 className="text-red-800 text-xl sm:text-2xl mb-3">
+          $ {product.price}
+        </h2>
+        <p className="mb-5 text-sm sm:text-base">{product.description}</p>
+
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-5 justify-center lg:justify-start">
+          <Link
+            to={`/edit/${product.id}`}
+            className="py-2 px-5 border rounded border-blue-500 text-blue-500 text-center"
+          >
+            Edit
+          </Link>
+          <button
+            onClick={() => ProductDeleteHandler(product.id)}
+            className="py-2 px-5 border rounded border-red-500 text-red-500"
+          >
+            Delete
+          </button>
+        </div>
       </div>
     </div>
   ) : (

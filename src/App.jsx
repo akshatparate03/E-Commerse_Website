@@ -23,7 +23,7 @@ const App = () => {
       {!loading && (pathname != "/" || search.length > 0) && (
         <Link
           to="/"
-          className="px-2 text-red-500 absolute left-[17%] top-[3%] border rounded border-red-500"
+          className="px-2 text-red-500 absolute left-[80%] lg:left-[90%] lg:top-[5%] top-[3%] border rounded border-red-500"
         >
           Home
         </Link>

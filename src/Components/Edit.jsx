@@ -30,7 +30,7 @@ const Edit = () => {
       product.title.trim().length < 5 ||
       product.image.trim().length < 5 ||
       product.category.trim().length < 5 ||
-      product.price.trim().length < 1 ||
+      String(product.price).trim().length < 1 ||
       product.description.trim().length < 5
     ) {
       alert(
@@ -52,14 +52,16 @@ const Edit = () => {
   return (
     <form
       onSubmit={AddProductHandler}
-      className="flex flex-col items-center p-[5%] w-screen h-screen"
+      className="flex flex-col items-center p-5 sm:p-[5%] w-full min-h-screen"
     >
-      <h1 className="mb-5 w-1/2 text-3xl">Edit Product</h1>
+      <h1 className="mb-5 w-full sm:w-1/2 text-2xl sm:text-3xl text-center sm:text-left">
+        Edit Product
+      </h1>
 
       <input
         type="url"
         placeholder="Product Image Link..."
-        className="text-1xl bg-zinc-100 rounded p-3 w-1/2 mb-3"
+        className="text-base bg-zinc-100 rounded p-3 w-full sm:w-1/2 mb-3"
         name="image"
         onChange={ChangeHandler}
         value={product && product.image}
@@ -68,17 +70,17 @@ const Edit = () => {
       <input
         type="text"
         placeholder="Product Title..."
-        className="text-1xl bg-zinc-100 rounded p-3 w-1/2 mb-3"
+        className="text-base bg-zinc-100 rounded p-3 w-full sm:w-1/2 mb-3"
         name="title"
         onChange={ChangeHandler}
         value={product && product.title}
       />
 
-      <div className="w-1/2 flex justify-between">
+      <div className="w-full sm:w-1/2 flex flex-col sm:flex-row sm:justify-between gap-3 mb-3">
         <input
           type="text"
           placeholder="Category Of Product..."
-          className="text-1xl bg-zinc-100 rounded p-3 w-[48%] mb-3"
+          className="text-base bg-zinc-100 rounded p-3 w-full sm:w-[48%] mb-3 sm:mb-0"
           name="category"
           onChange={ChangeHandler}
           value={product && product.category}
@@ -87,7 +89,7 @@ const Edit = () => {
         <input
           type="number"
           placeholder="Product Price..."
-          className="text-1xl bg-zinc-100 rounded p-3 w-[48%] mb-3"
+          className="text-base bg-zinc-100 rounded p-3 w-full sm:w-[48%] mb-3 sm:mb-0"
           name="price"
           onChange={ChangeHandler}
           value={product && product.price}
@@ -96,18 +98,15 @@ const Edit = () => {
 
       <textarea
         placeholder="Product Description..."
-        className="text-1xl bg-zinc-100 rounded p-3 w-1/2 mb-3"
+        className="text-base bg-zinc-100 rounded p-3 w-full sm:w-1/2 mb-3"
         name="description"
         onChange={ChangeHandler}
         value={product && product.description}
         rows="10"
       ></textarea>
 
-      <div className="w-1/2">
-        <button
-          className="py-2 px-5 border rounded border-blue-500 text-blue-500"
-          href="/create"
-        >
+      <div className="w-full sm:w-1/2">
+        <button className="w-full sm:w-auto py-2 px-5 border rounded border-blue-500 text-blue-500">
           Edit Product
         </button>
       </div>

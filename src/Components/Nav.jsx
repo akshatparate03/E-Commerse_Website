@@ -15,26 +15,33 @@ const Nav = () => {
   };
 
   return (
-    <nav className="w-[15%] h-full bg-zinc-50 flex flex-col items-center pt-5">
+    <nav className="w-[60%] sm:w-[40%] md:w-[30%] lg:w-[15%] h-full bg-zinc-50 flex flex-col items-center pt-3 sm:pt-5 p-3">
       <a
-        className="py-2 px-5 border rounded border-blue-500 text-blue-500"
+        className="text-xs sm:text-sm py-2 px-4 sm:px-5 border rounded border-blue-500 text-blue-500 text-center w-full"
         href="/create"
       >
         Add New Product
       </a>
-      <hr className="my-3 w-[80%]" />
-      <h1 className="text-2xl mb-3 w-[80%]">Category Filter</h1>
-      <div className="w-[80%]">
+
+      <hr className="my-3 w-[90%]" />
+
+      {/* Category Filter */}
+      <h1 className="text-base sm:text-lg lg:text-2xl font-semibold mb-3 w-full text-center lg:text-left px-2">
+        Category Filter
+      </h1>
+
+      {/* Categories */}
+      <div className="w-full flex flex-col items-start px-2">
         {distict_category.map((c, i) => (
           <Link
             key={i}
             to={`/?category=${c}`}
-            className="flex items-center mb-3"
+            className="flex items-center mb-2 text-sm sm:text-base"
           >
             <span
               style={{ backgroundColor: color() }}
-              className="rounded-full mr-2 w-[15px] h-[15px]"
-            ></span>{" "}
+              className="rounded-full mr-2 w-[14px] h-[14px]"
+            ></span>
             {c}
           </Link>
         ))}
